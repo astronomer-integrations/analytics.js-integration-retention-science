@@ -8,7 +8,8 @@ describe('RetentionScience', function() {
   var analytics;
   var retentionScience;
   var options = {
-    siteId: '12345'
+    siteId: '12345',
+    customMappings: [{key: 'Bid on Item', value: 'shopping_cart'}]
   };
 
   beforeEach(function() {
@@ -107,6 +108,11 @@ describe('RetentionScience', function() {
         analytics.stub(retentionScience, 'addedProduct');
         analytics.track('Added Product', {});
         analytics.called(retentionScience.addedProduct);
+      });
+
+      it('calls custom mappings', function () {
+          analytics.track('Bid on Item', {});
+          analytics.called(window._rsq.push, ['_setAction', 'shopping_cart']);
       });
 
       it('pushes completed order', function() {

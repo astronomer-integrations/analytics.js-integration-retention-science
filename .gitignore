@@ -2,3 +2,4 @@ node_modules
 components
 build
 test/pid.txt
+.DS_Store
