@@ -2,7 +2,7 @@
     "name": "analytics.js-integration-retention-science",
     "repo": "astronomerio/analytics.js-integration-retention-science",
     "description": "The Retention Science analytics.js integration.",
-    "version": "1.0.13",
+    "version": "1.1.0",
     "license": "MIT",
     "main": "lib/index.js",
     "dependencies": {
