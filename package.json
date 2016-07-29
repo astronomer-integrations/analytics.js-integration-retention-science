@@ -1,5 +1,5 @@
 {
-  "name": "analytics.js-integration-retention-science",
+  "name": "@astronomerio/analytics.js-integration-retention-science",
   "version": "1.1.0",
   "description": "Analytics.js plugin for Retention Science.",
   "main": "index.js",
