@@ -11,15 +11,7 @@
     "npm": ">=2.7.0"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
-  "devDependencies": {
-    "duo": "0.12.x",
-    "duo-test": "0.2.x",
-    "eslint": "0.x",
-    "eslint-config-segment": "^1.0.10",
-    "mocha": "^2.2.5",
-    "mocha-phantomjs": "segmentio/mocha-phantomjs#master",
-    "phantomjs": "^1.9.17"
-  }
+  "devDependencies": {}
 }
