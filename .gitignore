@@ -1,6 +1,7 @@
 node_modules
 components
 build
+build.js
 test/pid.txt
 .DS_Store
 coverage
