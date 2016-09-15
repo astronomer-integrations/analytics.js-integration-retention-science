@@ -3,3 +3,4 @@ components
 build
 test/pid.txt
 .DS_Store
+coverage
