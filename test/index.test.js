@@ -73,6 +73,11 @@ describe('RetentionScience', function() {
     });
 
     describe('#track', function() {
+      beforeEach(function(done) {
+        analytics.stub(window._rsq, 'push');
+      });
+
+
       it('calls viewed product', function() {
         analytics.stub(retentionScience, 'viewedProduct');
         analytics.track('Viewed Product', {});
