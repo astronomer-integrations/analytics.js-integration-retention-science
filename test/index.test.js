@@ -59,17 +59,20 @@ describe('RetentionScience', function() {
   });
 
   describe('after loading', function() {
-    // beforeEach(function(done) {
-    //   analytics.once('ready', done);
-    //   analytics.initialize();
-    //   //analytics.stub(window._rsq, 'push');
-    // });
+    beforeEach(function(done) {
+      analytics.once('ready', done);
+      analytics.initialize();
+      analytics.page();
+      analytics.stub(window._rsq, 'push');
+    });
 
     describe('#page', function() {
-      beforeEach(function(done) {
-        analytics.once('ready', done);
-        analytics.initialize();
-        analytics.stub(window._rsq, 'push');
+      beforeEach(function() {
+        // analytics.once('ready', done);
+        // analytics.initialize();
+        // analytics.stub(window._rsq, 'push');
+        analytics.spy(retentionScience, 'load');
+        analytics.spy(window, '_rsq');
       });
 
       it('should add a page track', function() {
@@ -80,9 +83,11 @@ describe('RetentionScience', function() {
 
     describe('#track', function() {
       beforeEach(function(done) {
-        analytics.once('ready', done);
-        analytics.initialize();
-        analytics.stub(window._rsq, 'push');
+        // analytics.once('ready', done);
+        // analytics.initialize();
+        // analytics.stub(window._rsq, 'push');
+        analytics.spy(retentionScience, 'load');
+        analytics.spy(window, '_rsq');
       });
 
       it('calls viewed product', function() {
