@@ -59,17 +59,19 @@ describe('RetentionScience', function() {
   });
 
   describe('after loading', function() {
-    beforeEach(function(done) {
-      analytics.once('ready', done);
-      analytics.initialize();
-      //analytics.stub(window._rsq, 'push');
-    });
+    // beforeEach(function(done) {
+    //   analytics.once('ready', done);
+    //   analytics.initialize();
+    //   //analytics.stub(window._rsq, 'push');
+    // });
 
     describe('#page', function() {
       beforeEach(function(done) {
+        analytics.once('ready', done);
+        analytics.initialize();
         analytics.stub(window._rsq, 'push');
       });
-      
+
       it('should add a page track', function() {
         analytics.page();
         analytics.called(window._rsq.push, ['_track']);
@@ -78,6 +80,8 @@ describe('RetentionScience', function() {
 
     describe('#track', function() {
       beforeEach(function(done) {
+        analytics.once('ready', done);
+        analytics.initialize();
         analytics.stub(window._rsq, 'push');
       });
 
