@@ -6,10 +6,6 @@
   "scripts": {
     "test": "make test"
   },
-  "engines": {
-    "node": ">=0.12.0",
-    "npm": ">=2.7.0"
-  },
   "author": "",
   "license": "MIT",
   "dependencies": {
