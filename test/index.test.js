@@ -82,7 +82,7 @@ describe('RetentionScience', function() {
     });
 
     describe('#track', function() {
-      beforeEach(function(done) {
+      beforeEach(function() {
         // analytics.once('ready', done);
         // analytics.initialize();
         // analytics.stub(window._rsq, 'push');
