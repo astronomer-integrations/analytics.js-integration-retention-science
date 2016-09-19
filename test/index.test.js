@@ -28,8 +28,8 @@ describe('RetentionScience', function() {
   });
 
   it('should have the right settings', function() {
-      analytics.compare(RetentionScience, integration('Retention Science')
-        .global('_rsq'));
+    analytics.compare(RetentionScience, integration('Retention Science')
+                      .global('_rsq'));
   });
 
   describe('before loading', function() {
@@ -117,8 +117,8 @@ describe('RetentionScience', function() {
       });
 
       it('calls custom mappings', function () {
-          analytics.track('Bid on Item', {});
-          analytics.called(window._rsq.push, ['_setAction', 'shopping_cart']);
+        analytics.track('Bid on Item', {});
+        analytics.called(window._rsq.push, ['_setAction', 'shopping_cart']);
       });
 
       it('pushes completed order', function() {
