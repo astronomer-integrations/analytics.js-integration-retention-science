@@ -1,6 +1,6 @@
 {
   "name": "@astronomerio/analytics.js-integration-retention-science",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Analytics.js plugin for Retention Science.",
   "main": "lib/index.js",
   "scripts": {
@@ -9,11 +9,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@segment/analytics.js-integration": "^3.1.0",
+    "@astronomerio/analytics.js-integration": "github:astronomerio/analytics.js-integration#3.1.0",
     "@ndhoule/each": "github:ndhoule/each"
   },
   "devDependencies": {
-    "@astronomerio/analytics.js-core": "github:astronomerio/analytics.js-core",
+    "@astronomerio/analytics.js-core": "github:astronomerio/analytics.js-core#3.0.0",
     "@segment/analytics.js-integration-tester": "^2.0.0",
     "@segment/clear-env": "^2.0.1",
     "@segment/eslint-config": "^3.1.1",
