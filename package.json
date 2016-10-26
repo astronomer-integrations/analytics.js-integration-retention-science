@@ -1,6 +1,6 @@
 {
   "name": "@astronomerio/analytics.js-integration-retention-science",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Analytics.js plugin for Retention Science.",
   "main": "lib/index.js",
   "scripts": {
