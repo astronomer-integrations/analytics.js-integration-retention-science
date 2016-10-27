@@ -9,7 +9,8 @@ describe('RetentionScience', function() {
   var retentionScience;
   var options = {
     siteId: '12345',
-    customMappings: [{key: 'Bid on Item', value: 'shopping_cart'}]
+    customMappings: [{key: 'Bid on Item Custom', value: 'shopping_cart'}],
+    reservedMappings: [{key: 'Bid on Item', value: 'shopping_cart'}]
   };
 
   beforeEach(function() {
@@ -87,11 +88,11 @@ describe('RetentionScience', function() {
         analytics.track('Viewed Product', { sku: 'xxxxx' });
         analytics.called(window._rsq.push, ['_setUserId', '']);
         analytics.called(window._rsq.push, ['_setUserEmail', '']);
-        // analytics.called(window._rsq.push, ['_addItem', {
-        //   id: 'xxxxx',
-        //   name: '',
-        //   price: ''
-        // }]);
+        analytics.called(window._rsq.push, ['_addItem', {
+          id: 'xxxxx',
+          name: '',
+          price: ''
+        }]);
       });
 
       it('adds defaults', function() {
@@ -105,19 +106,19 @@ describe('RetentionScience', function() {
       it('calls completed order', function() {
         analytics.track('Completed Order', {});
         analytics.called(window._rsq.push, ['_setSiteId', '12345']);
-        // analytics.called(window._rsq.push, ['_setAction', 'checkout_success']);
-        // analytics.called(window._rsq.push, ['_track']);
+        analytics.called(window._rsq.push, ['_setAction', 'checkout_success']);
+        analytics.called(window._rsq.push, ['_track']);
       });
 
       it('calls added product', function() {
         analytics.track('Added Product', {});
         analytics.called(window._rsq.push, ['_setSiteId', '12345']);
-        // analytics.called(window._rsq.push._setAction, 'shopping_cart');
-        // analytics.called(window._rsq.push, ['_track']);
+        analytics.called(window._rsq.push, ['_setAction', 'shopping_cart']);
+        analytics.called(window._rsq.push, ['_track']);
       });
 
       it('calls custom mappings', function () {
-        analytics.track('Bid on Item', {});
+        analytics.track('Bid on Item Custom', {});
         analytics.called(window._rsq.push, ['_setAction', 'shopping_cart']);
       });
 
@@ -136,19 +137,36 @@ describe('RetentionScience', function() {
           }]
         });
         analytics.called(window._rsq.push, ['_setSiteId', '12345']);
-        // analytics.called(window._rsq.push, ['_setUserId', '']);
-        // analytics.called(window._rsq.push, ['_setUserEmail', '']);
-        // analytics.called(window._rsq.push, ['_addOrder', { id: 'xxxxx-xxxxx', total: '150' }]);
-        // analytics.called(window._rsq.push, ['_addItem', {
-        //   id: '123',
-        //   name: 'product1',
-        //   price: '50'
-        // }]);
-        // analytics.called(window._rsq.push, ['_addItem', {
-        //   id: '456',
-        //   name: 'product2',
-        //   price: '100'
-        // }]);
+        analytics.called(window._rsq.push, ['_setUserId', '']);
+        analytics.called(window._rsq.push, ['_setUserEmail', '']);
+        analytics.called(window._rsq.push, ['_addOrder', { id: 'xxxxx-xxxxx', total: '150' }]);
+        analytics.called(window._rsq.push, ['_addItem', {
+          id: '123',
+          name: 'product1',
+          price: '50'
+        }]);
+        analytics.called(window._rsq.push, ['_addItem', {
+          id: '456',
+          name: 'product2',
+          price: '100'
+        }]);
+      });
+
+      it('calls reserved events', function () {
+        analytics.track('Bid on Item', {
+          sku: '456',
+          name: 'product2',
+          price: 100.00
+        });
+
+        analytics.called(window._rsq.push, ['_setSiteId', '12345']);
+        analytics.called(window._rsq.push, ['_setUserId', '']);
+        analytics.called(window._rsq.push, ['_setUserEmail', '']);
+        analytics.called(window._rsq.push, ['_addItem', {
+          id: '456',
+          name: 'product2',
+          price: '100'
+        }]);
       });
     });
   });
